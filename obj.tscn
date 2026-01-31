@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://jo0pyyi03tbn"]
+
+[ext_resource type="Texture2D" uid="uid://cllgttr0ic6fy" path="res://assets/Crane.png" id="1_aiw7h"]
+[ext_resource type="Script" uid="uid://dr1g7jow7u1ll" path="res://scripts/obj.gd" id="1_iub8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb47r"]
+size = Vector2(55.25, 33.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wb47r"]
+radius = 12.206555
+
+[node name="obj" type="CharacterBody2D" unique_id=1634277442]
+script = ExtResource("1_iub8e")
+
+[node name="ChatDetectionArea" type="Area2D" parent="." unique_id=1063456363]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea" unique_id=993551965]
+position = Vector2(249.375, 154)
+shape = SubResource("RectangleShape2D_wb47r")
+debug_color = Color(0.99548656, 0.06341551, 5.7756904e-07, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975039287]
+position = Vector2(248, 150)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("CircleShape2D_wb47r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120221057]
+position = Vector2(238.00002, 127)
+scale = Vector2(1.9444444, 1.9444445)
+texture = ExtResource("1_aiw7h")

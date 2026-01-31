@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://hvtkad5t7tt1"]
+
+[ext_resource type="Texture2D" uid="uid://bdahbiqm8o6yw" path="res://assets/SilverCup.png" id="1_6tvvo"]
+[ext_resource type="Script" uid="uid://dfq557b5cj6la" path="res://scripts/cup_test.gd" id="1_vhkol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tvvo"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhkol"]
+
+[node name="cup_test" type="CharacterBody2D" unique_id=1890767377]
+script = ExtResource("1_vhkol")
+
+[node name="cup_sprite" type="Sprite2D" parent="." unique_id=1866637570]
+position = Vector2(248, 135)
+texture = ExtResource("1_6tvvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251153552]
+position = Vector2(248, 137)
+shape = SubResource("CircleShape2D_6tvvo")
+
+[node name="ChatDetectionArea" type="Area2D" parent="." unique_id=1133802533]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea" unique_id=1705297467]
+position = Vector2(248, 134)
+shape = SubResource("RectangleShape2D_vhkol")
+debug_color = Color(0.9978629, 0, 0.16672915, 0.41960785)
