@@ -1,3 +1,9 @@
 [
-	{"name": "", "text": "you havent meet the requiment yet!"},
+	{
+		"name": "", 
+		"text": [
+			"you havent meet the requiment yet!",
+			"WTF is that?"
+		]
+	},
 ]

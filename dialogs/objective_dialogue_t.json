@@ -1,3 +1,9 @@
 [
-	{"name": "", "text": "this should be enough"},
+	{
+		"name": "", 
+		"text": [
+			"this should be enough",
+			"Thank you so much, strangers"
+		]
+	},
 ]

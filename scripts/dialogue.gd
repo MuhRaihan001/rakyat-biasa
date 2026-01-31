@@ -50,9 +50,10 @@ func next_script():
 	if curr_dialogue_id >= dialogue.size():
 		finish_dialogue()
 		return
-	
+		
+	var text_array = dialogue[curr_dialogue_id]['text']
 	$NinePatchRect/name.text = dialogue[curr_dialogue_id]['name']
-	$NinePatchRect/text_dialogue.text = dialogue[curr_dialogue_id]['text']
+	$NinePatchRect/text_dialogue.text = text_array.pick_random()
 
 func finish_dialogue():
 	$NinePatchRect.visible = false
