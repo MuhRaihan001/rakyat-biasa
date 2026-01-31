@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bqr1r741o4m47"]
+
+[ext_resource type="Texture2D" uid="uid://8yf8n613juha" path="res://assets/SpriteSheet.png" id="1_ideak"]
+[ext_resource type="Script" uid="uid://bblqame3ga56q" path="res://scripts/npc.gd" id="1_kh24r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(50.375, 51.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh24r"]
+size = Vector2(16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxcha"]
+atlas = ExtResource("1_ideak")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh24r"]
+atlas = ExtResource("1_ideak")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ul7y6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxcha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh24r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="NPC" type="CharacterBody2D" unique_id=2092401933]
+script = ExtResource("1_kh24r")
+
+[node name="ChatDetectionArea" type="Area2D" parent="." unique_id=802309650]
+
+[node name="chat_zone" type="CollisionShape2D" parent="ChatDetectionArea" unique_id=1790784668]
+position = Vector2(207, 105)
+shape = SubResource("RectangleShape2D_xxcha")
+debug_color = Color(0.9939224, 0, 0.2372647, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1451312124]
+position = Vector2(206, 101.5)
+shape = SubResource("RectangleShape2D_kh24r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=748865058]
+position = Vector2(206, 101)
+sprite_frames = SubResource("SpriteFrames_ul7y6")
+autoplay = "default"
+frame_progress = 0.36631623
