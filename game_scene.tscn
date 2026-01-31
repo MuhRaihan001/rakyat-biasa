@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d1wlvesfdqxeu" path="res://dialogue_obj.tscn" id="6_kdryc"]
 [ext_resource type="PackedScene" uid="uid://wydn66pladus" path="res://barrel_n_box.tscn" id="6_miq82"]
 [ext_resource type="PackedScene" uid="uid://cs4gd6w6p8lqc" path="res://house_2.tscn" id="8_ueiaa"]
+[ext_resource type="PackedScene" uid="uid://b6tgt2ml8p7c1" path="res://house_big_1.tscn" id="9_daj04"]
 [ext_resource type="PackedScene" uid="uid://ls13xt8ae0iv" path="res://house_1.tscn" id="11_j5hk1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opqoc"]
@@ -1148,6 +1149,9 @@ position = Vector2(22, -179)
 
 [node name="house_1" parent="ground" unique_id=235574604 instance=ExtResource("11_j5hk1")]
 position = Vector2(270, -192)
+
+[node name="house_big_1" parent="ground" unique_id=207859959 instance=ExtResource("9_daj04")]
+position = Vector2(-423, -242)
 
 [node name="Player" parent="." unique_id=2013253234 instance=ExtResource("1_mlf6e")]
 position = Vector2(-378, -375)
