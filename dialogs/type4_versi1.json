@@ -1,0 +1,14 @@
+[
+	{"name": "Sistem", "text": "(Raja berbicara dengan pegawai)"},
+	{"name": "Raja", "text": "Kau terlihat kelelahan."},
+	{"name": "Raja", "text": "Gudang ini sibuk akhir-akhir ini?"},
+	{"name": "Pegawai", "text": "Lebih baik kau tak bertanya."},
+	{"name": "Raja", "text": "Aku hanya ingin tahu ke mana barang-barang itu pergi."},
+	{"name": "Pegawai", "text": "Tidak ke pasar."},
+	{"name": "Pegawai", "text": "Tidak ke rakyat."},
+	{"name": "Raja", "text": "Ke siapa?"},
+	{"name": "Pegawai", "text": "Ke rumah besar di bukit utara."},
+	{"name": "Pegawai", "text": "Semua perintah datang dari sana."},
+	{"name": "Raja", "text": "Siapa yang tinggal di sana?"},
+	{"name": "Pegawai", "text": "…Orang yang lebih berkuasa dari hukum di wilayah ini."}
+]
