@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://ddogga1sppsrg" path="res://assets/MedievalVillageExteriorv1.0/MedievalVillageExteriorv1.0/RawAssets/Walls.png" id="1_w6ywq"]
 [ext_resource type="Texture2D" uid="uid://crtovf40hlqqa" path="res://assets/MedievalVillageExteriorv1.0/MedievalVillageExteriorv1.0/RawAssets/Props_Decor.png" id="2_skm36"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i31ii"]
+size = Vector2(235, 312)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i31ii"]
 texture = ExtResource("1_w6ywq")
 0:0/0 = 0
@@ -2847,10 +2850,11 @@ texture = ExtResource("2_skm36")
 [sub_resource type="TileSet" id="TileSet_skm36"]
 sources/0 = SubResource("TileSetAtlasSource_w6ywq")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i31ii"]
-size = Vector2(235, 309)
-
 [node name="house_big_2" type="StaticBody2D" unique_id=543957586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156314472]
+position = Vector2(215.5, 261)
+shape = SubResource("RectangleShape2D_i31ii")
 
 [node name="wall" type="TileMap" parent="." unique_id=319707842]
 tile_set = SubResource("TileSet_e4wut")
@@ -2871,7 +2875,3 @@ layer_0/tile_data = PackedInt32Array(15, 1769472, 24, 65551, 1769472, 25, 131087
 tile_set = SubResource("TileSet_skm36")
 format = 2
 layer_0/tile_data = PackedInt32Array(1507334, 393216, 14, 1572870, 393216, 15, 1638406, 393216, 16, 1507335, 458752, 14, 1572871, 458752, 15, 1638407, 458752, 16, 1507336, 524288, 14, 1572872, 524288, 15, 1638408, 524288, 16, 1507337, 589824, 14, 1572873, 589824, 15, 1638409, 589824, 16, 1507338, 655360, 14, 1572874, 655360, 15, 1638410, 655360, 16, 1507339, 720896, 14, 1572875, 720896, 15, 1638411, 720896, 16, 1507343, 393216, 14, 1572879, 393216, 15, 1638415, 393216, 16, 1507344, 458752, 14, 1572880, 458752, 15, 1638416, 458752, 16, 1507345, 524288, 14, 1572881, 524288, 15, 1638417, 524288, 16, 1507346, 589824, 14, 1572882, 589824, 15, 1638418, 589824, 16, 1507347, 655360, 14, 1572883, 655360, 15, 1638419, 655360, 16, 1507348, 720896, 14, 1572884, 720896, 15, 1638420, 720896, 16, 1638412, 0, 11, 1638413, 65536, 11, 1638414, 131072, 11)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=156314472]
-position = Vector2(215.5, 259.5)
-shape = SubResource("RectangleShape2D_i31ii")
