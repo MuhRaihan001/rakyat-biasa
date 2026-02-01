@@ -1034,6 +1034,9 @@ sources/3 = SubResource("TileSetAtlasSource_k0g5i")
 
 [node name="house_large_1" type="StaticBody2D" unique_id=1368831884]
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=235962871]
+polygon = PackedVector2Array(-30, 320, 48, 320, 48, 384, 210, 384, 209, 319, 354, 318, 351, 125, -30, 126)
+
 [node name="wall" type="TileMap" parent="." unique_id=1912894688]
 tile_set = SubResource("TileSet_idln2")
 format = 2
@@ -1048,6 +1051,3 @@ layer_0/tile_data = PackedInt32Array(262148, 2, 2, 327684, 327682, 1, 393220, 32
 tile_set = SubResource("TileSet_idln2")
 format = 2
 layer_0/tile_data = PackedInt32Array(327680, 1769473, 6, 393216, 1769473, 7, 458752, 1769473, 8, 524288, 1769473, 9, 589824, 1769473, 10, 327681, 1835009, 6, 393217, 1835009, 7, 458753, 1835009, 8, 524289, 1835009, 9, 589825, 1835009, 10, 327682, 1900545, 6, 393218, 1900545, 7, 458754, 1900545, 8, 524290, 1900545, 9, 589826, 1900545, 10)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=235962871]
-polygon = PackedVector2Array(-30, 320, 48, 320, 48, 384, 210, 384, 209, 319, 354, 318, 351, 125, -30, 126)

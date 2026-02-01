@@ -1,45 +1,65 @@
 extends CharacterBody2D
 
-# 1. This variable lets you drag and drop your Dialogue UI node 
-# into the NPC inspector later.
 @export var dialogue_ui: Control 
 
-# 2. Tracks if player is in the zone
-var player_in_chat_zone: bool = false
+# --- IMPORTANT SETUP ---
+# 1. Rename this to match your exact node name in the Scene Tree.
+#    Most likely it is "AnimatedSprite2D" or "Sprite2D".
+# 2. Ensure this node is a direct child of the NPC root.
+@onready var anim_sprite = $AnimatedSprite2D
+
+var player_ref: Node2D = null
 
 func _ready():
-	# Connect the signals from the Area2D via code 
-	# (Or you can do this via the Node tab in the editor)
 	$ChatDetectionArea.body_entered.connect(_on_chat_detection_area_body_entered)
 	$ChatDetectionArea.body_exited.connect(_on_chat_detection_area_body_exited)
 
 func _process(_delta):
-	if player_in_chat_zone:
-		# is_action_just_pressed is better than is_action_pressed for NPCs
+	if player_ref:
+		# 1. FACE THE PLAYER (4 Directions)
+		face_player_4_dir()
+		
+		# 2. CHECK INPUT
 		if Input.is_action_just_pressed("ui_accept"):
-			# Only start if the UI is NOT active
-			if dialogue_ui and dialogue_ui.d_active == false:
+			if dialogue_ui and not dialogue_ui.d_active:
 				run_dialogue()
+
+func face_player_4_dir():
+	if player_ref == null: return
+	
+	# Get vector pointing from NPC to Player
+	var direction = (player_ref.global_position - global_position)
+	
+	# We use 'abs' to see if the horizontal distance is bigger than the vertical distance
+	if abs(direction.x) > abs(direction.y):
+		# Horizontal Priority (Left or Right)
+		if direction.x > 0:
+			play_anim("idle_right") # Or flip_h = false
+		else:
+			play_anim("idle_left")  # Or flip_h = true
+	else:
+		# Vertical Priority (Up or Down)
+		if direction.y > 0:
+			play_anim("idle_down")
+		else:
+			play_anim("idle_up")
+
+func play_anim(anim_name: String):
+	# Safety check: ensure the animation exists before trying to play it
+	if anim_sprite and anim_sprite.sprite_frames.has_animation(anim_name):
+		anim_sprite.play(anim_name)
 
 func run_dialogue():
 	if dialogue_ui:
-		# Check if dialogue is already active to prevent restarting it
-		if dialogue_ui.d_active:
-			return
-			
+		if dialogue_ui.d_active: return
 		dialogue_ui.start()
 	else:
-		print("Error: Dialogue UI not assigned to NPC!")
-
-# --- Signal Functions ---
+		print("Error: Dialogue UI not assigned!")
 
 func _on_chat_detection_area_body_entered(body):
-	# Assuming your player script acts as a CharacterBody2D. 
-	# Better practice: Check if body.is_in_group("player")
 	if body.name == "Player": 
-		player_in_chat_zone = true
-		print("Player nearby") # Debug print
+		player_ref = body
 
 func _on_chat_detection_area_body_exited(body):
 	if body.name == "Player":
-		player_in_chat_zone = false
+		player_ref = null
