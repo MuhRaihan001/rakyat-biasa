@@ -12,15 +12,13 @@ signal dialogue_finish
 func _ready() -> void:	
 	$NinePatchRect.visible = false
 
-func start():
+func start(path: String):
 	if d_active:
 		return
 	
 	# 1. Assign the returned JSON data to the 'dialogue' variable
-	if player.is_have_money:
-		dialogue = load_dialogue_t()
-	else:
-		dialogue = load_dialogue_f()
+	var file = FileAccess.open(path, FileAccess.READ)
+	dialogue = JSON.parse_string(file.get_as_text())
 	
 	# 2. Safety check: did the file actually load anything?
 	if dialogue == null or dialogue.size() == 0:
@@ -32,17 +30,6 @@ func start():
 	curr_dialogue_id = -1
 	$NinePatchRect.visible = true
 	next_script()
-
-# Simplified loading functions to return the parsed data
-func load_dialogue_f():
-	var path = "res://dialogs/objective_dialogue_f.json"
-	var file = FileAccess.open(path, FileAccess.READ)
-	return JSON.parse_string(file.get_as_text())
-	
-func load_dialogue_t():
-	var path = "res://dialogs/objective_dialogue_t.json"
-	var file = FileAccess.open(path, FileAccess.READ)
-	return JSON.parse_string(file.get_as_text())
 
 func _input(event: InputEvent) -> void:
 	if !d_active:
