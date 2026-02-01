@@ -5,6 +5,12 @@ class_name Player extends CharacterBody2D
 
 var is_can_move = true
 var is_have_money = false
+var is_have_seed = false
+
+var finish_type1 = true
+var finish_type2 = true
+var finish_type3 = true
+var finish_type4 = false
 
 func _physics_process(_delta):
 	if is_can_move:

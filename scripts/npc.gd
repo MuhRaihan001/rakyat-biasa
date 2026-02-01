@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var dialogue_ui: Control 
+@onready var player: Player = $"../Player"
 
 # --- IMPORTANT SETUP ---
 # 1. Rename this to match your exact node name in the Scene Tree.
@@ -52,7 +53,14 @@ func play_anim(anim_name: String):
 func run_dialogue():
 	if dialogue_ui:
 		if dialogue_ui.d_active: return
-		dialogue_ui.start('res://dialogs/objective_dialogue_t.json')
+		if player.finish_type1:
+			dialogue_ui.start('res://dialogs/type1_after.json')
+		if player.is_have_money:
+			dialogue_ui.start('res://dialogs/type1_akhir.json')
+			player.is_have_money = false
+			player.finish_type1 = true
+		else:
+			dialogue_ui.start('res://dialogs/type1_awal.json')
 	else:
 		print("Error: Dialogue UI not assigned!")
 
