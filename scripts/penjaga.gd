@@ -1,22 +1,13 @@
 extends CharacterBody2D
 @export var dialogue_ui: Control 
 @onready var dialogue_objective: Control = $"../UI_layer/dialogue_objective"
+@onready var player: Player = $"../Player"
 # --- IMPORTANT SETUP ---
 # 1. Rename this to match your exact node name in the Scene Tree.
 #    Most likely it is "AnimatedSprite2D" or "Sprite2D".
 # 2. Ensure this node is a direct child of the NPC root.
 @onready var anim_sprite = $AnimatedSprite2D
 var player_ref: Node2D = null
-var path_list = [
-	'res://dialogs/npc.json',
-	'res://dialogs/npc2.json',
-	'res://dialogs/npc3.json',
-	'res://dialogs/npc4.json',
-	'res://dialogs/npc5.json',
-	'res://dialogs/npc6.json',
-	'res://dialogs/npc7.json'
-]
-
 func _ready():
 	$ChatDetectionArea.body_entered.connect(_on_chat_detection_area_body_entered)
 	$ChatDetectionArea.body_exited.connect(_on_chat_detection_area_body_exited)
@@ -56,9 +47,11 @@ func play_anim(anim_name: String):
 		anim_sprite.play(anim_name)
 
 func run_dialogue():
-	# Pilih random path dari path_list
-	var random_path = path_list[randi() % path_list.size()]
-	dialogue_objective.start(random_path)
+	if player.finish_type1 and player.finish_type2 and player.finish_type3:
+		dialogue_objective.start('res://dialogs/type4_versi1.json')
+	else:
+		dialogue_objective.start('res://dialogs/type4_ver1_normal.json')
+	
 	
 func _on_chat_detection_area_body_entered(body):
 	if body.name == "Player": 
