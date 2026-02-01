@@ -29,6 +29,11 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="NPC" type="CharacterBody2D" unique_id=2092401933]
@@ -48,5 +53,5 @@ shape = SubResource("RectangleShape2D_kh24r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=748865058]
 position = Vector2(206, 101)
 sprite_frames = SubResource("SpriteFrames_ul7y6")
+animation = &"new_animation"
 autoplay = "default"
-frame_progress = 0.36631623

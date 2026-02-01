@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crtovf40hlqqa" path="res://assets/MedievalVillageExteriorv1.0/MedievalVillageExteriorv1.0/RawAssets/Props_Decor.png" id="1_o5lxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5lxf"]
-size = Vector2(32, 51.25)
+size = Vector2(45, 66.25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn4ye"]
 texture = ExtResource("1_o5lxf")
@@ -645,7 +645,7 @@ sources/0 = SubResource("TileSetAtlasSource_hn4ye")
 [node name="barrel_box" type="StaticBody2D" unique_id=957514223]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098133416]
-position = Vector2(150, 107.375)
+position = Vector2(151.5, 114.875)
 shape = SubResource("RectangleShape2D_o5lxf")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=777634605]
