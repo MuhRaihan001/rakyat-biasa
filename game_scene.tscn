@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d4mnijtuv4i7l"]
+[gd_scene load_steps=40 format=3 uid="uid://d4mnijtuv4i7l"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1xjplcsvb2" path="res://assets/MedievalVillageExteriorv1.0/MedievalVillageExteriorv1.0/RawAssets/Ground.png" id="1_miq82"]
 [ext_resource type="PackedScene" uid="uid://bmnjneh7jpygr" path="res://player.tscn" id="1_mlf6e"]
@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://bjqvmrcbcvfmh" path="res://scripts/gosip.gd" id="26_f54l4"]
 [ext_resource type="Script" uid="uid://dkkd5xiw76ug6" path="res://scripts/pelaku.gd" id="26_glbr4"]
 [ext_resource type="Script" uid="uid://bmybt884ys0cw" path="res://scripts/penjaga.gd" id="27_5smy7"]
+[ext_resource type="Script" uid="uid://cavyaxdtnr8gg" path="res://scripts/oba-oba.gd" id="29_t06ws"]
+[ext_resource type="Script" uid="uid://y8ywslymnp2w" path="res://scripts/sakit.gd" id="30_0pvt5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opqoc"]
 texture = ExtResource("1_miq82")
@@ -3737,3 +3739,13 @@ script = ExtResource("27_5smy7")
 position = Vector2(612, -3616)
 scale = Vector2(2.5, 2.5)
 script = ExtResource("27_5smy7")
+
+[node name="oba-oba" parent="." instance=ExtResource("3_v1wow")]
+position = Vector2(1232.0001, -3553)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("29_t06ws")
+
+[node name="orang_sakit" parent="." instance=ExtResource("3_v1wow")]
+position = Vector2(2634, -3026.0002)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("30_0pvt5")
