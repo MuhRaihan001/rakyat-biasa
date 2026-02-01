@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var dialogue_ui: Control 
+@onready var dialogue_objective: Control = $"../UI_layer/dialogue_objective"
 
 # --- IMPORTANT SETUP ---
 # 1. Rename this to match your exact node name in the Scene Tree.
@@ -21,7 +22,6 @@ func _process(_delta):
 		
 		# 2. CHECK INPUT
 		if Input.is_action_just_pressed("ui_accept"):
-			if dialogue_ui and not dialogue_ui.d_active:
 				run_dialogue()
 
 func face_player_4_dir():
@@ -50,12 +50,8 @@ func play_anim(anim_name: String):
 		anim_sprite.play(anim_name)
 
 func run_dialogue():
-	if dialogue_ui:
-		if dialogue_ui.d_active: return
-		dialogue_ui.start('res://dialogs/objective_dialogue_t.json')
-	else:
-		print("Error: Dialogue UI not assigned!")
-
+	dialogue_objective.start('res://dialogs/get_drug.json')
+	
 func _on_chat_detection_area_body_entered(body):
 	if body.name == "Player": 
 		player_ref = body
